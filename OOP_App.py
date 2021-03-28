@@ -13,10 +13,11 @@ xPos = int(scnWidth / 2 - app_Width / 2)
 yPos = int(scnHeight / 2 - app_Height / 2)
 root.geometry('{}x{}+{}+{}'.format(app_Width, app_Height, xPos, yPos))
 
-class StartPage():
-    def __init__(self,root):
 
-        self.frame = Label(root, text='Start Typing...',font=('Helvetica',20),fg='grey').pack()
+class StartPage():
+    def __init__(self, root):
+        self.frame = Label(root, text='Start Typing...',
+                           font=('Helvetica', 20), fg='grey').pack()
         self.my_entry = Entry(root, font=('Helvetica', 14))
         self.my_entry.pack()
         self.my_listbox = Listbox(root, width=50)
@@ -43,9 +44,11 @@ class StartPage():
             #     my_list.configure(background='red')
             try:
                 if self.data_list()[1][self.my_listbox.get(self.cs)] == 'palevioletred':
-                    self.my_listbox.configure(background=self.data_list()[1][self.my_listbox.get(self.cs)])
+                    self.my_listbox.configure(background=self.data_list()[
+                                              1][self.my_listbox.get(self.cs)])
                 elif self.data_list()[1][self.my_listbox.get(self.cs)] == 'slateblue':
-                    self.my_listbox.configure(background=self.data_list()[1][self.my_listbox.get(self.cs)])
+                    self.my_listbox.configure(background=self.data_list()[
+                                              1][self.my_listbox.get(self.cs)])
             except:
                 if list == 0:
                     self.my_listbox.configure(background='lightcoral')
@@ -72,12 +75,13 @@ class StartPage():
 
     def data_list(self):
         self.toppings = ['การช่วยฟื้นคืนชีพ (CPR)', 'ไฟไหม้หรือน้ำร้อนลวก', 'เลือดกำเดาไหล', 'แผลที่เกิดจากของมีคมบาด',
-                    'บาดแผลกระดูกหัก', 'แมลงกัดต่อย', 'บาดแผลถลอก', 'บาดแผลฟกช้ำ', 'ความดันต่ำ/หน้ามืด/เวียนศีรษะ',
-                    'หมดสติ', 'การห้ามเลือด']
-        self.data_topic = {'เลือดกำเดาไหล': 'palevioletred', 'ไฟไหม้หรือน้ำร้อนลวก': 'slateblue'}
-        return self.toppings , self.data_topic
+                         'บาดแผลกระดูกหัก', 'แมลงกัดต่อย', 'บาดแผลถลอก', 'บาดแผลฟกช้ำ', 'ความดันต่ำ/หน้ามืด/เวียนศีรษะ',
+                         'หมดสติ', 'การห้ามเลือด']
+        self.data_topic = {'เลือดกำเดาไหล': 'palevioletred',
+                           'ไฟไหม้หรือน้ำร้อนลวก': 'slateblue'}
+        return self.toppings, self.data_topic
 
-    def update(self , data):
+    def update(self, data):
         # clear the listbox
         self.my_listbox.delete(0, END)
 
@@ -105,9 +109,8 @@ class StartPage():
     def run(self):
         self.event()
 
+
 app = StartPage(root)
 app.run()
 
 root.mainloop()
-
-
