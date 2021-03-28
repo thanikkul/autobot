@@ -1,5 +1,5 @@
 from tkinter import *
-"""This is GodMao"""
+
 root = Tk()
 root.title('First aid - App')
 
